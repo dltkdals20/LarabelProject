@@ -19,7 +19,9 @@ class TableController extends Controller
     public function index ()
     {
       //db의 tables에 모든 정보를 가져와서 키 벨류값 으로 table.php에 던져준다.
-      $users = DB::table('tables')->get();
+      $users = DB::table('tables')
+                        ->orderBy('created_at','desc')
+                        ->paginate(5);
        return view('borads.table',compact('users'));
 
     }

@@ -1,11 +1,14 @@
-@extends('layout')
+@extends('tableLayout')
 
 @section('title')
 
 @endsection()
 
 @section('content') 
-<a href="/logout" class="btn btn-primary pull-right">로그아웃</a>    
+<div class="btn">
+<a href="/tables/create" class="btn btn-primary pull-right">글쓰기</a>
+  <a href="/logout" class="btn btn-primary pull-right">로그아웃</a>    
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -28,5 +31,7 @@
     @endforeach 
   </tbody>
 </table>
-<a href="/tables/create" class="btn btn-primary pull-right">글쓰기</a>
+
+  <!-- [!! $users->render() !!] -->
+
 @endsection()
