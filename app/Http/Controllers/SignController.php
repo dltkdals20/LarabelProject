@@ -41,7 +41,7 @@ class SignController extends Controller
         
         //해당 방법으로는 Hash가 되지 않아 밑에 model를 이용해서 다시 사용자의 가입정보를 db에 저장함.
         // $Sign = Sign::create(request(['userId',('userPassword'),'userPh']));
-        // return redirect('login');
+        
        
         // //먼저 사용자가 입력한 아이디가 잇는지 검사를 하고 
         // $sign = Sign::where('userId', '=', $request->userId)->first();
@@ -54,6 +54,8 @@ class SignController extends Controller
             $sign -> userPassword = Hash::make($request->userPassword);
             $sign -> userPh = $request->userPh;
             $res = $sign ->save();   
+
+            return redirect('login');
     }
 
     public function find (Request $request)
@@ -77,7 +79,7 @@ class SignController extends Controller
             //세션을 만들고 싶은데..
             //회원가입 당시의 pk 값과
             //사용자의 아이디 값.
-            // $userId = DB::table('signs')->where('userId', $userId)->value('id');
+            // $userPk = DB::table('signs')->where('userId', $userId)->value('id');
             $date =$request->input();
             $request->session()->put('userId',$date['userId']);
             // $request->session()->put('userPk',$userId->id);

@@ -27,12 +27,9 @@
       <input type="password" class="form-control" id="password" name="userPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    {{ isset($result) ? $result : 'Default' }}
+    @if (!empty($result))
+      <p>{{ $result }}</p>
+    @endif    
     <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
     <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
   </form>

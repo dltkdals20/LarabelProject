@@ -36,7 +36,7 @@ class TableController extends Controller
     public function store (Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required max:255',
+            'title' => 'required',
             'date' => 'date_format:m/d/Y',
             'content' => 'required',
         ]);
